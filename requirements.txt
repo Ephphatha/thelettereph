@@ -1,0 +1,5 @@
+south
+storages
+markupfield
+autoslug
+sitetree
