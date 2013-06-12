@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for post in post_list %}
+    <div class="post-list-entry" id="{{ post.slug }}">
+      <h2><a href="/blog/{{ post.slug }}">{{ post.subject }}</a></h2>
+      {{ post.body }}
+      <footer>
+        {{ post.date }}
+      </footer>
+    </div>
+  {% empty %}
+    <p>Looks like I've been a lazy bugger.</p>
+  {% endfor %}
+{% endblock %}

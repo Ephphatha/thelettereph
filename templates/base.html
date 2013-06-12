@@ -1,0 +1,22 @@
+{% load sitetree %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}TheLetterEph.com{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body class="container-fluid">
+    <header class="row-fluid span-12">
+      <a class="brand" href="#">{% block header %}<h1>The Letter Eph</h1>{% endblock %}</a>
+      {% sitetree_menu from "navmenu" template "menu_bootstrap.html"%}
+    </header>
+    <div id="content" class="row-fluid span-12">
+      {% block content %}{% endblock %}
+    </div>
+    <footer class="row-fluid span-12">
+      {% block footer %}{% endblock %}
+    </footer>
+  </body>
+</html>

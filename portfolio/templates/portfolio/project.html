@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="media project" id="{{ project.slug }}">
+    <a class="pull-left" href="#">
+      <img class="media-object" src="{{ project.thumbnail.url }}">
+    </a>
+    <div class="media-body">
+      <h2 class="media-heading">{{ project.title }}</h2>
+      <p>{{ project.blurb }}</p>
+      {{ project.description }}
+    </div>
+  </div>
+{% endblock %}

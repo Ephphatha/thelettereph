@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for project in project_list %}
+    <div class="media project" id="{{ project.slug }}">
+      <a class="pull-left" href="#">
+        <img class="media-object" src="{{ project.thumbnail.url }}">
+      </a>
+      <div class="media-body">
+        <h2 class="media-heading"><a href="{{ url portfolio.views.ProjectView.as_view project.slug }}">{{ project.title }}</a></h2>
+        <p>{{ project.blurb }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>Looks like I've been a lazy bugger.</p>
+  {% endfor %}
+{% endblock %}
