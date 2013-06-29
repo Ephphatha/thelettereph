@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="media project" id="{{ project.slug }}">
-    <a class="pull-left" href="#">
-      <img class="media-object" src="{{ project.thumbnail.url }}">
-    </a>
-    <div class="media-body">
-      <h2 class="media-heading">{{ project.title }}</h2>
-      <p>{{ project.blurb }}</p>
-      {{ project.description }}
-    </div>
+  <div class="project" id="{{ project.slug }}">
+    <header>
+      <a href="{{ url portfolio.views.ProjectScreenshotView.as_view project.slug }}">
+        <img class="thumbnail" src="{{ project.thumbnail.url }}">
+      </a>
+      <h2 class="title">{{ project.title }}</h2>
+      <ul class="downloads">
+        <li><a class="binary" href="{{ project.binary.url }}">Download</a></li>
+        <li><a class="source" href="{{ project.source.url }}">Source</a></li>
+        {% if project.documentation %}
+        <li><a class="documentation" href="{{ project.documentation.url }}">Documentation</a></li>
+        {% endif %}
+      </ul>
+    </header>
+    <p>{{ project.blurb }}</p>
+    {{ project.description }}
+    <footer>
+      <ul>
+        <li>Project started: {{ project.start_date }}</li>
+        <li>Last updated: {{ project.update_date }}</li>
+      </ul>
+    </footer>
   </div>
 {% endblock %}

@@ -13,6 +13,8 @@ class Project(models.Model):
   thumbnail = models.ImageField(upload_to='images/', storage=ftp, blank=True, default="thumb.png")
   binary = models.FileField(upload_to='files/', storage=ftp, blank=True)
   source = models.URLField(blank=True)
+  documentation = models.URLField(blank=True)
+  tags = models.ManyToMany(Tag, blank=True)
   start_date = models.DateField()
   update_date = models.DateField(blank=True, null=True)
   
@@ -36,3 +38,7 @@ class Screenshot(models.Model):
 
   class Meta:
     ordering = ['title']
+
+class Tag(models.Model):
+  name = models.CharField(max_length=100)
+  slug = AutoSlugField(populate_from='name', unique=True)

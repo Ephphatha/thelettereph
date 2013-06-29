@@ -7,15 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
   </head>
-  <body class="container-fluid">
-    <header class="row-fluid span-12">
-      <a class="brand" href="#">{% block header %}<h1>The Letter Eph</h1>{% endblock %}</a>
-      {% sitetree_menu from "navmenu" template "menu_bootstrap.html"%}
+  <body>
+    <header>
+      {% block header %}
+        <h1>
+          {% block title %}
+            <a href="#">The Letter Eph</a>
+          {% endblock %}
+        </h1>
+        {% sitetree_menu from "navmenu" %}
+      {% endblock %}
     </header>
-    <div id="content" class="row-fluid span-12">
-      {% block content %}{% endblock %}
+    <div id="container">
+      <div id="sidebar">
+        {% block sidebar %}
+          <ul>
+            {% for item in sidebar_list %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% endblock %}
+      </div>
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
     </div>
-    <footer class="row-fluid span-12">
+    <footer>
       {% block footer %}{% endblock %}
     </footer>
   </body>

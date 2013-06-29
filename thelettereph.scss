@@ -1,0 +1,48 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+header {
+  @include outer-container;
+  ul.navbar {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    li {
+      float:left;
+      a {
+        display:block;
+        width:60px;
+      }
+    }
+  }
+}
+
+div.container {
+  @include outer-container;
+  div.sidebar {
+    @include span-coloumns(3);
+  }
+  
+  div.content {
+    @include span-columns(9);
+    div.project {
+      header {
+        @include fill-parent;
+        img.thumbnail {
+          float: left
+        }
+        h2.title {
+          @include omega;
+        }
+        ul.downloads {
+          li {
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  @include outer-container;
+}
