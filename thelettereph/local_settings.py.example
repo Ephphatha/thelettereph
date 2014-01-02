@@ -1,0 +1,20 @@
+
+ADMINS = (
+    ('<<admin_name>>', '<<admin_email>>'),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'thelettereph',
+        'USER': 'djangouser',
+        'PASSWORD': '<<db_pass>>',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '<<secret_key>>'

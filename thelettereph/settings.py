@@ -42,7 +42,7 @@ MEDIA_URL = 'http://media.thelettereph.com/'
 STATIC_ROOT = '/var/www/thelettereph/thelettereph/static'
 
 # URL prefix for static files.
-STATIC_URL = '/static/'
+STATIC_URL = 'http://static.thelettereph.com/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -99,7 +99,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-    'storages',
+    #'storages',
     'markupfield',
     'autoslug',
     'sitetree',
