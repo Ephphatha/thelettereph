@@ -11,7 +11,7 @@ class Project(models.Model):
   binary = models.FileField(upload_to='files/', blank=True)
   source = models.URLField(blank=True)
   documentation = models.URLField(blank=True)
-  tags = models.ManyToMany(Tag, blank=True)
+  tags = models.ManyToManyField(Tag, blank=True)
   start_date = models.DateField()
   update_date = models.DateField(blank=True, null=True)
 
