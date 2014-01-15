@@ -1,3 +1,4 @@
+pil
 south
 django-markupfield
 django-autoslug
