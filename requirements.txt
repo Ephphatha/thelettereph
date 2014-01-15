@@ -1,4 +1,4 @@
 south
-markupfield
+django-markupfield
 autoslug
 sitetree
