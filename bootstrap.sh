@@ -24,9 +24,9 @@ apt-get install -y gcc
 apt-get install -y python-dev
 pip install uwsgi
 pip install django
-easy-install South
 apt-get install -y postgresql
 apt-get install -y python-psycopg2
+apt-get install -y python-markdown
 apt-get install -y git
 apt-get install -y vsftpd
 echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
@@ -41,6 +41,7 @@ passwd --stdin www << $password
 mkdir -m=775 /var/www
 sudo -u www mkdir -m=775 /var/www/thelettereph
 sudo -u www git clone https://github.com/Ephphatha/thelettereph.git /var/www/thelettereph
+pip install -r requirements.txt
 mv /var/www/thelettereph/thelettereph/local_settings.py.example /var/www/thelettereph/thelettereph/local_settings.py
 
 #generate and save secret key
