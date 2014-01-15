@@ -24,7 +24,9 @@ apt-get install -y gcc
 apt-get install -y python-dev
 pip install uwsgi
 pip install django
+easy-install South
 apt-get install -y postgresql
+apt-get install -y python-psycopg2
 apt-get install -y git
 apt-get install -y vsftpd
 echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
