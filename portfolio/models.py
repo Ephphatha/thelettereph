@@ -1,9 +1,6 @@
 from django.db import models
 from markupfield.fields import MarkupField
 from autoslug import AutoSlugField
-from storages.backends.ftp import FTPStorage
-
-ftp = FTPStorage()
 
 class Project(models.Model):
   title = models.CharField(max_length=200)
