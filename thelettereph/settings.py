@@ -1,6 +1,4 @@
 # Django settings for thelettereph project.
-import local_settings
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -135,3 +133,5 @@ LOGGING = {
         },
     }
 }
+
+from local_settings import *
