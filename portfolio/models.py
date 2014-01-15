@@ -2,6 +2,10 @@ from django.db import models
 from markupfield.fields import MarkupField
 from autoslug import AutoSlugField
 
+class Tag(models.Model):
+  name = models.CharField(max_length=100)
+  slug = AutoSlugField(populate_from='name', unique=True)
+
 class Project(models.Model):
   title = models.CharField(max_length=200)
   slug = AutoSlugField(populate_from='title', unique=True)
@@ -35,7 +39,3 @@ class Screenshot(models.Model):
 
   class Meta:
     ordering = ['title']
-
-class Tag(models.Model):
-  name = models.CharField(max_length=100)
-  slug = AutoSlugField(populate_from='name', unique=True)
