@@ -1,10 +1,7 @@
 from django.db import models
 from markupfield.fields import MarkupField
 from autoslug import AutoSlugField
-
-class Tag(models.Model):
-  name = models.CharField(max_length=100)
-  slug = AutoSlugField(populate_from='name', unique=True)
+from taggit.managers import TaggableManager
 
 class Project(models.Model):
   title = models.CharField(max_length=200)
@@ -15,7 +12,7 @@ class Project(models.Model):
   binary = models.FileField(upload_to='files/', blank=True)
   source = models.URLField(blank=True)
   documentation = models.URLField(blank=True)
-  tags = models.ManyToManyField(Tag, blank=True)
+  tags = TaggableManager()
   start_date = models.DateField()
   update_date = models.DateField(blank=True, null=True)
 

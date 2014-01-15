@@ -3,3 +3,4 @@ south
 django-markupfield
 django-autoslug
 django-sitetree
+django-taggit
