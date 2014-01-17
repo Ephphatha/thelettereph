@@ -13,6 +13,7 @@ cat ephphatha_id_rsa.pub >> /home/ephphatha/.ssh/authorized_keys
 rm ephphatha_id_rsa.pub
 
 #get webserver shit
+apt-get update
 apt-get install -y python-software-properties
 yes | add-apt-repository ppa:nginx/stable
 apt-get update
