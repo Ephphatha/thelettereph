@@ -1,4 +1,4 @@
-pil
+pillow
 south
 django-markupfield
 django-autoslug
