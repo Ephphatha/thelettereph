@@ -3,7 +3,7 @@
 {% block content %}
   <div class="project" id="{{ project.slug }}">
     <header>
-      <a href="{{ url 'portfolio.views.ProjectScreenshotView.as_view' project.slug }}">
+      <a href="{% url 'portfolio.views.ProjectScreenshotView.as_view' project.slug %}">
         <img class="thumbnail" src="{{ project.thumbnail.url }}">
       </a>
       <h2 class="title">{{ project.title }}</h2>
