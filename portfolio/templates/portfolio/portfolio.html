@@ -5,7 +5,7 @@
     <div class="project" id="{{ project.slug }}">
       <img class="thumbnail" src="{{ project.thumbnail.url }}">
       <h2>
-        <a href="{{ url portfolio.views.ProjectView.as_view project.slug }}">{{ project.title }}</a>
+        <a href="{{ url 'portfolio.views.ProjectView.as_view' project.slug }}">{{ project.title }}</a>
       </h2>
       <p>{{ project.blurb }}</p>
     </div>
