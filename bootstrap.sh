@@ -71,7 +71,6 @@ if [ ! -e /var/www/thelettereph ]; then
   chown www /var/www/thelettereph
   apt-get install -y git
   sudo -u www git clone https://github.com/Ephphatha/thelettereph.git /var/www/thelettereph
-  chmod +x /var/www/thelettereph/manage.py
 fi
 #
 pip install -r /var/www/thelettereph/requirements.txt
@@ -135,13 +134,13 @@ if [ ! -d /media/sf_thelettereph ] && [ ! -e /var/www/thelettereph/thelettereph/
 #
   if [ ! -d /var/www/thelettereph/thelettereph/media ]; then
     mkdir /var/www/thelettereph/thelettereph/media
-    echo "https://cpsrv13.lithiumhosting.com:2078/media	/var/www/thelettereph/thelettereph/media	davfs	defaults,uid=www,gid=www	0	0" >> /etc/fstab
+    echo "$webdav_url/media	/var/www/thelettereph/thelettereph/media	davfs	defaults,uid=www,gid=www	0	0" >> /etc/fstab
     mount -t davfs $webdav_url/media /var/www/thelettereph/thelettereph/media
   fi
 #
   if [ ! -d /var/www/thelettereph/thelettereph/static ]; then
     mkdir /var/www/thelettereph/thelettereph/static
-    echo "https://cpsrv13.lithiumhosting.com:2078/static  /var/www/thelettereph/thelettereph/static davfs defaults,uid=www,gid=www  0 0" >> /etc/fstab
+    echo "$webdav_url/static  /var/www/thelettereph/thelettereph/static davfs defaults,uid=www,gid=www  0 0" >> /etc/fstab
     mount -t davfs $webdav_url/static /var/www/thelettereph/thelettereph/static
   fi
 #
@@ -161,6 +160,7 @@ ln -s /var/www/thelettereph/thelettereph_nginx.conf /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-enabled/default
 sed -i "/www-data;/www;/" /etc/nginx/nginx.conf
 ln -s /var/www/thelettereph/uwsgi.conf /etc/init/uwsgi.conf
+initctl reload-configuration
 mkdir /etc/uwsgi
 chgrp www /etc/uwsgi
 chmod g+w /etc/uwsgi
