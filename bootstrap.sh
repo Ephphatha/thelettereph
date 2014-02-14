@@ -71,6 +71,7 @@ if [ ! -e /var/www/thelettereph ]; then
   chown www /var/www/thelettereph
   apt-get install -y git
   sudo -u www git clone https://github.com/Ephphatha/thelettereph.git /var/www/thelettereph
+  chmod +x /var/www/thelettereph/manage.py
 fi
 #
 pip install -r /var/www/thelettereph/requirements.txt
@@ -78,6 +79,10 @@ pip install -r /var/www/thelettereph/requirements.txt
 if [ ! -f /var/www/thelettereph/thelettereph/local_settings.py ]; then
   mv /var/www/thelettereph/thelettereph/local_settings.py.example /var/www/thelettereph/thelettereph/local_settings.py
 #
+  if [ -d /media/sf_thelettereph ]
+    echo "DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
+    echo "TEMPLATE_DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
+  fi
   #generate and save secret key
   key=$(tr -dc "[:alnum:\!@#$%^&*\(-_=+\)]" < /dev/urandom | head -c 50)
   sed -i "s/<<secret_key>>/$key/" "/var/www/thelettereph/thelettereph/local_settings.py"
@@ -163,6 +168,12 @@ ln /var/www/thelettereph/thelettereph_uwsgi.ini /etc/uwsgi/thelettereph_uwsgi.in
 #
 mkdir /var/log/uwsgi
 chown www /var/log/uwsgi
+#
+/var/www/thelettereph/manage.py syncdb
+/var/www/thelettereph/manage.py schemamigration portfolio --initial
+/var/www/thelettereph/manage.py schemamigration blog --initial
+/var/www/thelettereph/manage.py migrate portfolio
+/var/www/thelettereph/manage.py migrate blog
 #start webserver
-/etc/init.d/nginx restart
-restart uwsgi
+/etc/init.d/nginx start
+start uwsgi
