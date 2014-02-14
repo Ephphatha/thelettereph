@@ -79,7 +79,7 @@ pip install -r /var/www/thelettereph/requirements.txt
 if [ ! -f /var/www/thelettereph/thelettereph/local_settings.py ]; then
   mv /var/www/thelettereph/thelettereph/local_settings.py.example /var/www/thelettereph/thelettereph/local_settings.py
 #
-  if [ -d /media/sf_thelettereph ]
+  if [ -d /media/sf_thelettereph ]; then
     echo "DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
     echo "TEMPLATE_DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
   fi
