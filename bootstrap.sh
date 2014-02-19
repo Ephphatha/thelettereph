@@ -81,8 +81,8 @@ if [ ! -f /var/www/thelettereph/thelettereph/local_settings.py ]; then
   if [ -d /media/sf_thelettereph ]; then
     echo "DEBUG = True
 TEMPLATE_DEBUG = True
-MEDIA_URL = '/media'
-STATIC_URL = '/static'" >> /var/www/thelettereph/thelettereph/local_settings.py
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'" >> /var/www/thelettereph/thelettereph/local_settings.py
   fi
   #generate and save secret key
   key=$(tr -dc "[:alnum:\!@#$%^&*\(-_=+\)]" < /dev/urandom | head -c 50)
