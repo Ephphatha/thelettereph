@@ -79,8 +79,10 @@ if [ ! -f /var/www/thelettereph/thelettereph/local_settings.py ]; then
   mv /var/www/thelettereph/thelettereph/local_settings.py.example /var/www/thelettereph/thelettereph/local_settings.py
 #
   if [ -d /media/sf_thelettereph ]; then
-    echo "DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
-    echo "TEMPLATE_DEBUG = True" >> /var/www/thelettereph/thelettereph/local_settings.py
+    echo "DEBUG = True
+TEMPLATE_DEBUG = True
+MEDIA_URL = '/media'
+STATIC_URL = '/static'" >> /var/www/thelettereph/thelettereph/local_settings.py
   fi
   #generate and save secret key
   key=$(tr -dc "[:alnum:\!@#$%^&*\(-_=+\)]" < /dev/urandom | head -c 50)
@@ -103,47 +105,7 @@ password=`expr match "$passline" "[[:space:]]*'PASSWORD': '\(.*\)',"`
 sudo -u postgres psql -q -c "CREATE USER djangouser WITH ENCRYPTED PASSWORD '$password'"
 sudo -u postgres psql -q -c "CREATE DATABASE thelettereph WITH OWNER = djangouser"
 #
-if [ ! -d /media/sf_thelettereph ] && [ ! -e /var/www/thelettereph/thelettereph/media ] && [ ! -e /var/www/thelettereph/thelettereph/static ]; then
-  grep "deb http://archive.ubuntu.com/ubuntu precise universe" /etc/apt/sources.list > /dev/null 2>&1
-  if [ $? != 0 ]; then
-    echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
-  fi
-#
-  grep "deb http://archive.ubuntu.com/ubuntu precise-updates universe" /etc/apt/sources.list > /dev/null 2>&1
-  if [ $? != 0 ]; then
-    echo "deb http://archive.ubuntu.com/ubuntu precise-updates universe" >> /etc/apt/sources.list
-  fi
-#
-  apt-get update
-  apt-get install -y davfs2
-#
-  #set up WebDAV link for hosting static/media files
-  read -p "Provide the WebDAV url for the static/media file server: " webdav_url
-  read -p "Provide the WebDAV username: " webdav_user
-  read -p -s "Provide the WebDAV password: " webdav_pass
-  #two mount locations are used by default - common root is /var/www/thelettereph/thelettereph/
-  grep "/var/www/thelettereph/thelettereph/media $webdav_user $webdav_pass" /etc/davfs2/secrets > /dev/null 2>&1
-  if [ $? != 0 ]; then
-    echo "/var/www/thelettereph/thelettereph/media $webdav_user $webdav_pass" >> /etc/davfs2/secrets
-  fi
-#
-  grep "/var/www/thelettereph/thelettereph/static $webdav_user $webdav_pass" /etc/davfs2/secrets > /dev/null 2>&1
-  if [ $? != 0 ]; then
-    echo "/var/www/thelettereph/thelettereph/static $webdav_user $webdav_pass" >> /etc/davfs2/secrets
-  fi
-#
-  if [ ! -d /var/www/thelettereph/thelettereph/media ]; then
-    mkdir /var/www/thelettereph/thelettereph/media
-    echo "$webdav_url/media	/var/www/thelettereph/thelettereph/media	davfs	defaults,uid=www,gid=www	0	0" >> /etc/fstab
-    mount -t davfs $webdav_url/media /var/www/thelettereph/thelettereph/media
-  fi
-#
-  if [ ! -d /var/www/thelettereph/thelettereph/static ]; then
-    mkdir /var/www/thelettereph/thelettereph/static
-    echo "$webdav_url/static  /var/www/thelettereph/thelettereph/static davfs defaults,uid=www,gid=www  0 0" >> /etc/fstab
-    mount -t davfs $webdav_url/static /var/www/thelettereph/thelettereph/static
-  fi
-#
+if [ ! -d /media/sf_thelettereph ]; then
   apt-get install -y vsftpd
 #
   #ftp server configuration
