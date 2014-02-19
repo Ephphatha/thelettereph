@@ -29,24 +29,27 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+PROJECT_ROOT = '/var/www/thelettereph'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = '/var/www/thelettereph/thelettereph/media'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'thelettereph/media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
-MEDIA_URL = 'http://media.thelettereph.com/'
+MEDIA_URL = '//media.thelettereph.com/'
 
 # Absolute path to the directory static files should be collected to.
-STATIC_ROOT = '/var/www/thelettereph/thelettereph/static'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'thelettereph/static')
 
 # URL prefix for static files.
-STATIC_URL = 'http://static.thelettereph.com/'
+STATIC_URL = '//static.thelettereph.com/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ('styles', os.path.join(PROJECT_ROOT, 'thelettereph/styles')),
 )
 
 # List of finder classes that know how to find static files in
@@ -85,7 +88,7 @@ ROOT_URLCONF = 'thelettereph.urls'
 WSGI_APPLICATION = 'thelettereph.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/var/www/thelettereph/templates',
+    os.path.join(PROJECT_ROOT, 'thelettereph/templates'),
 )
 
 INSTALLED_APPS = (

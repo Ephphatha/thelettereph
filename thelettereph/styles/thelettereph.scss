@@ -20,9 +20,9 @@ header {
 div.container {
   @include outer-container;
   div.sidebar {
-    @include span-coloumns(3);
+    @include span-columns(3);
   }
-  
+
   div.content {
     @include span-columns(9);
     div.project {
