@@ -1,3 +1,5 @@
+import os
+
 # Django settings for thelettereph project.
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
