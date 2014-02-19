@@ -67,8 +67,8 @@ else
 fi
 #
 if [ ! -e /var/www/thelettereph ]; then
-  mkdir -m775 /var/www/thelettereph
-  chown www /var/www/thelettereph
+  mkdir -m755 /var/www/thelettereph
+  chown www:www /var/www/thelettereph
   apt-get install -y git
   sudo -u www git clone https://github.com/Ephphatha/thelettereph.git /var/www/thelettereph
 fi
