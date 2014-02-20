@@ -19,8 +19,8 @@
         {% sitetree_menu from "navmenu" include "trunk,topmenu" %}
       {% endblock %}
     </header>
-    <div id="container">
-      <div id="sidebar">
+    <div class="container">
+      <div class="sidebar">
         {% block sidebar %}
           <ul>
             {% for item in sidebar_list %}
@@ -29,7 +29,7 @@
           </ul>
         {% endblock %}
       </div>
-      <div id="content">
+      <div class="content">
         {% block content %}{% endblock %}
       </div>
     </div>
