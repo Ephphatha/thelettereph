@@ -1,0 +1,98 @@
+/* line 2, ../sass/neat/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 5, ../sass/thelettereph.scss */
+header {
+  overflow: hidden;
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 7, ../sass/thelettereph.scss */
+header ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 60, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+header ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+header ul li:first-child, header ul li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+header ul li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+header ul li.last {
+  padding-right: 0;
+}
+
+/* line 12, ../sass/thelettereph.scss */
+div.container {
+  overflow: hidden;
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 14, ../sass/thelettereph.scss */
+div.container div.sidebar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+/* line 40, ../sass/neat/grid/_span-columns.scss */
+div.container div.sidebar:last-child {
+  margin-right: 0;
+}
+/* line 18, ../sass/thelettereph.scss */
+div.container div.content {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%;
+}
+/* line 40, ../sass/neat/grid/_span-columns.scss */
+div.container div.content:last-child {
+  margin-right: 0;
+}
+/* line 21, ../sass/thelettereph.scss */
+div.container div.content div.project header {
+  width: 100%;
+}
+/* line 23, ../sass/thelettereph.scss */
+div.container div.content div.project header img.thumbnail {
+  float: left;
+}
+/* line 26, ../sass/thelettereph.scss */
+div.container div.content div.project header h2.title {
+  margin-right: 0;
+}
+
+/* line 38, ../sass/thelettereph.scss */
+footer {
+  overflow: hidden;
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}

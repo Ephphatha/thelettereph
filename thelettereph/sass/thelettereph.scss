@@ -1,19 +1,11 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
+@import "compass/typography/lists/horizontal-list";
 
 header {
   @include outer-container;
-  ul.navbar {
-    list-style-type:none;
-    margin:0;
-    padding:0;
-    li {
-      float:left;
-      a {
-        display:block;
-        width:60px;
-      }
-    }
+  ul {
+    @include horizontal-list;
   }
 }
 
