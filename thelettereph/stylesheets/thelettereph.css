@@ -14,7 +14,7 @@ header {
   margin-right: auto;
 }
 /* line 7, ../sass/thelettereph.scss */
-header ul {
+header nav ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +22,7 @@ header ul {
   *zoom: 1;
 }
 /* line 60, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
-header ul li {
+header nav ul li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
@@ -33,15 +33,15 @@ header ul li {
   padding-right: 4px;
 }
 /* line 48, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
-header ul li:first-child, header ul li.first {
+header nav ul li:first-child, header nav ul li.first {
   padding-left: 0;
 }
 /* line 49, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
-header ul li:last-child {
+header nav ul li:last-child {
   padding-right: 0;
 }
 /* line 50, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
-header ul li.last {
+header nav ul li.last {
   padding-right: 0;
 }
 

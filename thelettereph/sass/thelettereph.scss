@@ -4,7 +4,7 @@
 
 header {
   @include outer-container;
-  ul {
+  nav ul {
     @include horizontal-list;
   }
 }
